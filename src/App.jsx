@@ -36,7 +36,6 @@ const router = createBrowserRouter([
         path: '/gestos',
         element: <Gestos />
       }
-
       ,
       {
         path: '/ar',
@@ -53,7 +52,6 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-       
     <RouterProvider router={router} />
   );
 }
