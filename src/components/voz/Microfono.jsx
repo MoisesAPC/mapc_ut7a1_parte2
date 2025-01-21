@@ -1,11 +1,10 @@
 import React from 'react';
-//npm i react-speech-recognition
+// npm i react-speech-recognition
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 //Ejemplo en el que se transcribe lo que dice la persona
 //cuando encendemos el micro
-function EjVoz(){
-  
+function Microfono() {
       const {
         transcript,
         listening,
@@ -19,10 +18,11 @@ function EjVoz(){
     
       return (
         <div>
-          <p>Microphone: {listening ? 'on' : 'off'}</p>
-          <button onClick={SpeechRecognition.startListening}>Start</button>
-          {/*Si queremos que se escuche continuamente:
-          <button onClick={() => SpeechRecognition.startListening({continuous: true})}>Start</button>*/}
+          <p>Micrófono: {listening ? 'ON' : 'OFF'}</p>
+          
+          {/* Para que el micrófono esté constantemente escuchando */}
+          <button onClick={() => SpeechRecognition.startListening({continuous: true})}>Start</button>
+
           <button onClick={SpeechRecognition.stopListening}>Stop</button>
           <button onClick={resetTranscript}>Reset</button>
           <p>{transcript}</p>
@@ -31,4 +31,4 @@ function EjVoz(){
     };
     
 
-export default EjVoz;
+export default Microfono;
