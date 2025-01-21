@@ -6,7 +6,7 @@ import VozEj2 from './components/VozEj2'
 import Gestos from './components/Gestos'
 import AR from './components/AR'
 import ARMoises from './components/ARMoises'
-import Home from './components/Home'
+import Home from './pages/Home'
 
 
 //import Pruebas from './components/Pruebas'

@@ -1,4 +1,4 @@
-import Dashboard from "./Dashboard"
+import Dashboard from "/src/components/Dashboard"
 import { Typography } from "@mui/material"
 import CardAnimal from '/src/components/CardAnimal.jsx';
 
@@ -17,8 +17,9 @@ function Home() {
 
     return <>
         <Dashboard/>
-        <Typography variant="h2">Inicio</Typography>
-        <CardAnimal nombre={nombre} imagen={imagen} alt={alt} />
+          <Typography variant="h2" align="center">Dime el nombre de uno de los siguientes animales:</Typography>
+          <Typography variant="h1" align="center" color="success">Perro - Gato - Lagarto - Tortuga - Bovino</Typography>
+        {/*<CardAnimal nombre={nombre} imagen={imagen} alt={alt} />*/}
     </>
 }
 
