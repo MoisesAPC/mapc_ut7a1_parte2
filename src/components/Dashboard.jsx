@@ -6,40 +6,32 @@ function Dashboard() {
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
-                <Toolbar >
-                    <Grid container spacing={1} sx={{ width: '100%' }} >
-
-                        <Grid size={{xs:12, md:2, lg:2}}>        
+                <Toolbar>
+                    <Grid container spacing={1} sx={{ width: '100%', justifyContent: 'space-between' }}>
+                        <Grid xs={2} md={2} lg={2}>        
                             <Link to={'/'} style={{textDecoration:'none', color:'white'}}>Inicio</Link>
                         </Grid>
-
-                        <Grid size={{xs:12, md:2, lg:2}}>        
-                            <Link to={'/gestos'} style={{textDecoration:'none', color:'white'}}>Gestos</Link>
-                        </Grid>
  
-                        <Grid size={{xs:12, md:3, lg:3}}>        
-                            <Link to={'/vozej1'} style={{textDecoration:'none', color:'white'}}>Voz: ejemplo básico</Link>
+                        <Grid xs={2} md={2} lg={2}>        
+                            <Link to={'/gatos'} style={{textDecoration:'none', color:'white'}}>Gatos</Link>
                         </Grid>
 
-                        <Grid size={{xs:12, md:3, lg:3}}>        
-                            <Link to={'/vozej2'} style={{textDecoration:'none', color:'white'}}>Voz: ejemplo comandos</Link>
+                        <Grid xs={2} md={2} lg={2}>        
+                            <Link to={'/perros'} style={{textDecoration:'none', color:'white'}}>Perros</Link>
                         </Grid>
 
-                        <Grid size={{xs:12, md:1, lg:1}}>        
-                            <Link to={'/ar'} style={{textDecoration:'none', color:'white'}}>AR</Link>
+                        <Grid xs={2} md={2} lg={2}>        
+                            <Link to={'/lagartos'} style={{textDecoration:'none', color:'white'}}>Lagartos</Link>
                         </Grid>
 
-                        <Grid size={{xs:12, md:1, lg:1}}>        
-                            <Link to={'/armoises'} style={{textDecoration:'none', color:'white'}}>ARMoises</Link>
+                        <Grid xs={2} md={2} lg={2}>        
+                            <Link to={'/bovinos'} style={{textDecoration:'none', color:'white'}}>Bovinos</Link>
                         </Grid>
-
-                        
                     </Grid>
-                </Toolbar >
+                </Toolbar>
             </Container>
         </AppBar>
-      
     );
-  }
-  
-  export default Dashboard;
+}
+
+export default Dashboard;

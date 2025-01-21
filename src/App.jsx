@@ -1,51 +1,45 @@
 import 'regenerator-runtime/runtime';
 import React from 'react'
-//import './App.css';
-import VozEj1 from './components/VozEj1'
-import VozEj2 from './components/VozEj2'
-import Gestos from './components/Gestos'
-import AR from './components/AR'
-import ARMoises from './components/ARMoises'
-import Home from './pages/Home'
-
+import PageHome from '/src/pages/PageHome.jsx'
+import PageGatos from '/src/pages/PageGatos.jsx'
+import PagePerros from '/src/pages/PagePerros.jsx'
+import PageBovinos from '/src/pages/PageBovinos.jsx'
+import PageTortugas from '/src/pages/PageTortugas.jsx'
+import PageLagartos from '/src/pages/PageLagartos.jsx'
 
 //import Pruebas from './components/Pruebas'
 //importamos la función createBrowserRouter y el componente RouterProvider
 //de la librería react-router-dom
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
-
 const router = createBrowserRouter([
   {
     path: '/',
     children: [
-    
       {
         index: true,
-        element: <Home />
+        element: <PageHome />
       },
       {
-        path: '/vozej1',
-        element: <VozEj1 />
+        path: '/perros',
+        element: <PagePerros />
       },
       {
-        path: '/vozej2',
-        element: <VozEj2 />
+        path: '/gatos',
+        element: <PageGatos />
       },
       {
-        path: '/gestos',
-        element: <Gestos />
-      }
-      ,
-      {
-        path: '/ar',
-        element: <AR />
+        path: '/bovinos',
+        element: <PageBovinos />
       },
       {
-        path: '/armoises',
-        element: <ARMoises />
-      }
-      
+        path: '/tortugas',
+        element: <PageTortugas />
+      },
+      {
+        path: '/lagartos',
+        element: <PageLagartos />
+      },
     ]
   }
 ])

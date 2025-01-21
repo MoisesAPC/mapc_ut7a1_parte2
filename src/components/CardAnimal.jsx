@@ -5,7 +5,7 @@ import { CardMedia } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Box } from '@mui/material';
 
-const CardAnimal = ({ nombre, alt, imagen }) => {
+const CardAnimal = ({ nombre, alt, imagen, tamano }) => {
 
   return (
     <>
@@ -15,7 +15,7 @@ const CardAnimal = ({ nombre, alt, imagen }) => {
       justifyContent="center"
       alignItems="center"
     >
-      <Card sx={{ maxWidth: 1000 }}>
+      <Card sx={{ width: tamano, maxWidth: 1000 }}>
         <CardContent>
           <CardMedia
             component="img"
@@ -24,7 +24,7 @@ const CardAnimal = ({ nombre, alt, imagen }) => {
             title={alt}
             sx={{
               width: '100%',
-              height: 500,
+              height: tamano,
               marginBottom: '16px',
               objectFit: 'cover'
             }}
