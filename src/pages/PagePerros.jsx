@@ -25,7 +25,7 @@ const perros = [
   }
 ];
 
-function App() {
+function PagePerros() {
   return (
     <>
         <Dashboard/>
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default PagePerros;

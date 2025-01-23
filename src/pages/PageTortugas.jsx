@@ -25,7 +25,7 @@ const tortugas = [
   }
 ];
 
-function App() {
+function PageTortugas() {
   return (
     <>
         <Dashboard/>
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default PageTortugas;

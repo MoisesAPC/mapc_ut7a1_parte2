@@ -2,6 +2,7 @@ import 'regenerator-runtime/runtime';
 import React from 'react'
 import ListaAnimales from '/src/components/ListaAnimales.jsx'
 import Dashboard from '/src/components/Dashboard.jsx'
+import VozComandosHome from '/src/components/voz/VozComandosHome.jsx'
 
 // Lista de animales (menú principal)
 const animales = [
@@ -37,15 +38,16 @@ const animales = [
   }
 ];
 
-function App() {
+function PageHome() {
   return (
     <>
         <Dashboard/>
         <div style={{ marginTop: '20px' }}>
             <ListaAnimales animales={animales} />
         </div>
+        <VozComandosHome/>
     </>
   );
 }
 
-export default App;
+export default PageHome;

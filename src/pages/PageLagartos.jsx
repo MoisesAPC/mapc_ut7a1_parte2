@@ -25,7 +25,7 @@ const lagartos = [
   }
 ];
 
-function App() {
+function PageLagartos() {
   return (
     <>
         <Dashboard/>
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default PageLagartos;

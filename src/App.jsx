@@ -6,7 +6,6 @@ import PagePerros from '/src/pages/PagePerros.jsx'
 import PageBovinos from '/src/pages/PageBovinos.jsx'
 import PageTortugas from '/src/pages/PageTortugas.jsx'
 import PageLagartos from '/src/pages/PageLagartos.jsx'
-import Microfono from '/src/components/voz/Microfono.jsx'
 
 //import Pruebas from './components/Pruebas'
 //importamos la función createBrowserRouter y el componente RouterProvider
@@ -49,7 +48,6 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
-      <Microfono />
     </>
   );
 }

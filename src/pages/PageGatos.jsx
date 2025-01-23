@@ -25,7 +25,7 @@ const gatos = [
   }
 ];
 
-function App() {
+function PageGatos() {
   return (
     <>
         <Dashboard/>
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default PageGatos;

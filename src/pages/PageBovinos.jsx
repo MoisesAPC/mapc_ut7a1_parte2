@@ -25,7 +25,7 @@ const bovinos = [
   }
 ];
 
-function App() {
+function PageBovinos() {
   return (
     <>
         <Dashboard/>
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default PageBovinos;
