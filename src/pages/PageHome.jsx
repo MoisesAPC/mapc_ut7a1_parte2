@@ -1,8 +1,11 @@
 import 'regenerator-runtime/runtime';
-import React from 'react'
+import React, { useState } from 'react';
 import ListaAnimales from '/src/components/ListaAnimales.jsx'
 import Dashboard from '/src/components/Dashboard.jsx'
 import VozComandosHome from '/src/components/voz/VozComandosHome.jsx'
+import VozComandosCardAnimalDetalles from '/src/components/voz/VozComandosCardAnimalDetalles.jsx'
+
+import CardAnimalDetalles from '/src/components/CardAnimalDetalles.jsx'
 
 // Lista de animales (menú principal)
 const animales = [
@@ -39,13 +42,19 @@ const animales = [
 ];
 
 function PageHome() {
+  const [showInfo, setShowInfo] = useState(false);
+  const [showPelaje, setShowPelaje] = useState(false);
+  const [showCaracter, setShowCaracter] = useState(false);    
+
   return (
     <>
         <Dashboard/>
         <div style={{ marginTop: '20px' }}>
             <ListaAnimales animales={animales} />
         </div>
-        <VozComandosHome/>
+        <CardAnimalDetalles id={1} nombre={'Prueba'} imagen={'src/assets/perros/boxer.jpg'} alt={'prueba_alt'} tamano={500} informacion={'descripcion prueba'}
+        setShowInfo={setShowInfo} setShowPelaje={setShowPelaje} setShowCaracter={setShowCaracter}/>
+        <VozComandosCardAnimalDetalles setShowInfo={setShowInfo} setShowPelaje={setShowPelaje} setShowCaracter={setShowCaracter}/>
     </>
   );
 }

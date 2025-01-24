@@ -2,6 +2,7 @@ import 'regenerator-runtime/runtime';
 import React from 'react'
 import ListaAnimales from '/src/components/ListaAnimales.jsx'
 import Dashboard from '/src/components/Dashboard.jsx'
+import VozComandosPerro from '/src/components/voz/VozComandosPerro.jsx'
 
 // Lista de perros
 const perros = [
@@ -32,6 +33,7 @@ function PagePerros() {
         <div style={{ marginTop: '20px' }}>
             <ListaAnimales animales={perros} />
         </div>
+        <VozComandosPerro/>
     </>
   );
 }

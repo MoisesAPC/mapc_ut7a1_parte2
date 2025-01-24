@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card } from '@mui/material';
 import { CardContent } from '@mui/material';
 import { CardMedia } from '@mui/material';
 import { Typography } from '@mui/material';
-import { Box } from '@mui/material';
+import { Box, List, ListItem, Collapse } from '@mui/material';
 
-const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, descripcion }) => {
+const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion }) => {
+
+  const [showInfo, setShowInfo] = useState(false);
+  const [showPelaje, setShowPelaje] = useState(false);
+  const [showCaracter, setShowCaracter] = useState(false);
 
   return (
     <>
@@ -23,20 +27,43 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, descripcion }) => {
             alt={alt}
             title={alt}
             sx={{
-              width: '100%',
+              width: tamano + 250,
               height: tamano,
               marginBottom: '16px',
               objectFit: 'cover'
             }}
           />
 
-          <Typography variant="h6" component="div" align="center" fontWeight="bold">
+          <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ fontSize: '50px' }}>
             {nombre}
           </Typography>
 
-          <Typography variant="h7" component="div" align="justify">
-            {descripcion}
-          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2 }}>
+            <List>
+              <ListItem>
+                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline' }}>
+                  Información
+                </Typography>
+
+                <Collapse in={showInfo}>
+                  <Typography>{informacion}</Typography>
+                </Collapse>
+              </ListItem>
+
+              <ListItem>
+                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline' }}>
+                  Pelaje
+                </Typography>
+              </ListItem>
+
+              <ListItem>
+                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline' }}>
+                  Carácter
+                </Typography>
+              </ListItem>
+
+            </List>
+          </Box>
 
         </CardContent>
       </Card>
