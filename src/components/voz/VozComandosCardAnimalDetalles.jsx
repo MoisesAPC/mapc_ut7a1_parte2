@@ -33,6 +33,14 @@ function VozComandosCardAnimalDetalles({ enviarComando }) {
           fuzzyMatchingThreshold: 0.6
         },
         {
+          command: 'inicio',
+          callback: () => {
+            navigate('/');
+          },
+          isFuzzyMatch: true,
+          fuzzyMatchingThreshold: 0.6
+        },
+        {
           // Borra todo lo que hayamos hablado para volver a empezar a escuchar de 0
           command: 'borrar',
           callback: ({ resetTranscript }) => resetTranscript()

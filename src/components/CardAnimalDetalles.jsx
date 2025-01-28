@@ -37,10 +37,9 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, 
             alt={alt}
             title={alt}
             sx={{
-              width: tamano + 250,
+              width: tamano,
               height: tamano,
-              marginBottom: '16px',
-              objectFit: 'cover'
+              objectFit: 'contain'
             }}
           />
 
@@ -50,7 +49,13 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, 
 
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2 }}>
             <List>
-              <ListItem onClick={() => manejarLosCollapse('informacion')}>
+              <ListItem
+                onClick={() => manejarLosCollapse('informacion')}
+                sx={{ 
+                  padding: 0,
+                  display: 'flex', 
+                  justifyContent: 'center'
+                }}>
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Información
 
@@ -60,7 +65,13 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, 
                 </Typography>
               </ListItem>
 
-              <ListItem onClick={() => manejarLosCollapse('pelaje')}>
+              <ListItem
+                onClick={() => manejarLosCollapse('pelaje')}
+                sx={{ 
+                  padding: 0,
+                  display: 'flex', 
+                  justifyContent: 'center'
+                }}>
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Pelaje
 
@@ -70,13 +81,30 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, 
                 </Typography>
               </ListItem>
 
-              <ListItem onClick={() => manejarLosCollapse('caracter')}>
+              <ListItem
+                onClick={() => manejarLosCollapse('caracter')}
+                sx={{ 
+                  padding: 0,
+                  display: 'flex', 
+                  justifyContent: 'center'
+                }}>
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Carácter
 
                   <Collapse in={abrirColapse === 'caracter'} sx={{ transitionDuration : "400ms" }}>
                     <Typography>{caracter}</Typography>
                   </Collapse>
+                </Typography>
+              </ListItem>
+
+              <ListItem
+                sx={{ 
+                  padding: 0,
+                  display: 'flex', 
+                  justifyContent: 'center'
+                }}>
+                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
+                  Inicio
                 </Typography>
               </ListItem>
 

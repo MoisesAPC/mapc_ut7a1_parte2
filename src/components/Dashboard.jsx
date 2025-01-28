@@ -25,6 +25,10 @@ function Dashboard() {
                         </Grid>
 
                         <Grid xs={2} md={2} lg={2}>        
+                            <Link to={'/tortugas'} style={{textDecoration:'none', color:'white'}}>Tortugas</Link>
+                        </Grid>
+
+                        <Grid xs={2} md={2} lg={2}>        
                             <Link to={'/bovinos'} style={{textDecoration:'none', color:'white'}}>Bovinos</Link>
                         </Grid>
                     </Grid>

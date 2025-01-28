@@ -62,8 +62,6 @@ function VozComandosHome() {
         resetTranscript,
         browserSupportsSpeechRecognition
       } = useSpeechRecognition({ commands: comandos });
-
-      //console.log(transcript)
       
       if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
