@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 // npm i react-speech-recognition
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-function VozComandosCardAnimalDetalles({ setShowInfo, setShowPelaje, setShowCaracter }) {
+function VozComandosCardAnimalDetalles({ }) {
       const navigate = useNavigate();
 
       /* Estos son los comandos de voz reconocidos por este componente */
@@ -12,7 +12,6 @@ function VozComandosCardAnimalDetalles({ setShowInfo, setShowPelaje, setShowCara
           command: 'Informacion',
           callback: () => {
             console.log("INFODEEEEEE")
-            setShowInfo(true);
           },
           isFuzzyMatch: true,
           fuzzyMatchingThreshold: 0.6

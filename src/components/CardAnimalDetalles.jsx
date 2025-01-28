@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { Card } from '@mui/material';
+import { Button, Card } from '@mui/material';
 import { CardContent } from '@mui/material';
 import { CardMedia } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Box, List, ListItem, Collapse } from '@mui/material';
 
-const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion }) => {
+const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, caracter }) => {
 
-  const [showInfo, setShowInfo] = useState(false);
-  const [showPelaje, setShowPelaje] = useState(false);
-  const [showCaracter, setShowCaracter] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
     <>
@@ -38,27 +36,39 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion }) => {
             {nombre}
           </Typography>
 
+          <Button onClick={() => setOpen(!open)}>
+            {open ? "Close" : "Open"}
+          </Button>
+
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2 }}>
             <List>
               <ListItem>
-                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline' }}>
+                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Información
-                </Typography>
 
-                <Collapse in={showInfo}>
-                  <Typography>{informacion}</Typography>
-                </Collapse>
+                  <Collapse in={open} sx={{ transitionDuration : "400ms" }}>
+                    <Typography>{informacion}</Typography>
+                  </Collapse>
+                </Typography>
               </ListItem>
 
               <ListItem>
-                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline' }}>
+                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Pelaje
+
+                  <Collapse in={open} sx={{ transitionDuration : "400ms" }}>
+                    <Typography>{pelaje}</Typography>
+                  </Collapse>
                 </Typography>
               </ListItem>
 
               <ListItem>
-                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline' }}>
+                <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Carácter
+
+                  <Collapse in={open} sx={{ transitionDuration : "400ms" }}>
+                    <Typography>{caracter}</Typography>
+                  </Collapse>
                 </Typography>
               </ListItem>
 
