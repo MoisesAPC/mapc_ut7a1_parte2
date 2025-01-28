@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Card } from '@mui/material';
 import { CardContent } from '@mui/material';
 import { CardMedia } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Box, List, ListItem, Collapse } from '@mui/material';
 
-const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, caracter }) => {
+const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, caracter, abrirInformacion }) => {
 
-  const [open, setOpen] = useState(false)
+  const [openInformacion, setOpenInformacion] = useState(false)
+
+  // Cuando la variable "abrirInformacion" esté a true
+  // abrimos el collapse de "Informacion"
+  useEffect(() => {
+    if (abrirInformacion) {
+      setOpenInformacion(true);
+    }
+  }, [abrirInformacion]);
 
   return (
     <>
@@ -36,17 +44,13 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, 
             {nombre}
           </Typography>
 
-          <Button onClick={() => setOpen(!open)}>
-            {open ? "Close" : "Open"}
-          </Button>
-
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2 }}>
             <List>
               <ListItem>
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Información
 
-                  <Collapse in={open} sx={{ transitionDuration : "400ms" }}>
+                  <Collapse in={openInformacion} sx={{ transitionDuration : "400ms" }}>
                     <Typography>{informacion}</Typography>
                   </Collapse>
                 </Typography>
@@ -56,7 +60,7 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, 
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Pelaje
 
-                  <Collapse in={open} sx={{ transitionDuration : "400ms" }}>
+                  <Collapse in={openInformacion} sx={{ transitionDuration : "400ms" }}>
                     <Typography>{pelaje}</Typography>
                   </Collapse>
                 </Typography>
@@ -66,7 +70,7 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, 
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Carácter
 
-                  <Collapse in={open} sx={{ transitionDuration : "400ms" }}>
+                  <Collapse in={openInformacion} sx={{ transitionDuration : "400ms" }}>
                     <Typography>{caracter}</Typography>
                   </Collapse>
                 </Typography>

@@ -42,6 +42,11 @@ const animales = [
 ];
 
 function PageHome() {
+  const [informacionAbierta, setAbrirInformacion] = useState(false);
+
+  const comandoInformacion = () => {
+    setAbrirInformacion(true);
+  };
 
   return (
     <>
@@ -49,9 +54,12 @@ function PageHome() {
         <div style={{ marginTop: '20px' }}>
             <ListaAnimales animales={animales} />
         </div>
+
         <CardAnimalDetalles id={1} nombre={'Prueba'} imagen={'src/assets/perros/boxer.jpg'} alt={'prueba_alt'} tamano={500}
-        informacion={'descripcion prueba'} pelaje={'pelaje_prueba'} caracter={'caracter_prueba'}/>
-        <VozComandosCardAnimalDetalles />
+        informacion={'descripcion prueba'} pelaje={'pelaje_prueba'} caracter={'caracter_prueba'}
+        abrirInformacion={comandoInformacion}/>
+
+        <VozComandosCardAnimalDetalles abrirInformacion={comandoInformacion} />
     </>
   );
 }

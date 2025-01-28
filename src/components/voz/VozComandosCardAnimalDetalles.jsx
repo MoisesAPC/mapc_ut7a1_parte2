@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 // npm i react-speech-recognition
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-function VozComandosCardAnimalDetalles({ }) {
+function VozComandosCardAnimalDetalles({ abrirInformacion }) {
       const navigate = useNavigate();
 
       /* Estos son los comandos de voz reconocidos por este componente */
@@ -12,6 +12,15 @@ function VozComandosCardAnimalDetalles({ }) {
           command: 'Informacion',
           callback: () => {
             console.log("INFODEEEEEE")
+            // Cuando se reconozca el comando, ejecutamos la funcion "abrirInformacion"
+            // en el componente CardAnimalDetalles
+            
+            // Cuando se ejecute la funcion "abrirInformacion", el componente padre
+            // ejecutará a su vez otra funcion (comandoInformacion), que hará que dicha
+            // funcion se ejecute en el componente CardAnimalDetalles, lo que abrirá el Collapse
+            if (abrirInformacion) {
+              abrirInformacion();
+            }
           },
           isFuzzyMatch: true,
           fuzzyMatchingThreshold: 0.6
@@ -58,7 +67,7 @@ function VozComandosCardAnimalDetalles({ }) {
           <p>Micrófono: {listening ? 'ON' : 'OFF'}</p>
           
           {/* Pulsa Start para empezar a escuchar, Stop para parar */}
-          <button onClick={SpeechRecognition.startListening}>Start</button>
+          <button onClick={SpeechRecognition.startListening({ language: 'es-ES' })}>Start</button>
           <button onClick={SpeechRecognition.stopListening}>Stop</button>
 
           {/* Imprimimos lo que se diga al micrófono */}
