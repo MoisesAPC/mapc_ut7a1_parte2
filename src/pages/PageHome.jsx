@@ -3,9 +3,6 @@ import React, { useState } from 'react';
 import ListaAnimales from '/src/components/ListaAnimales.jsx'
 import Dashboard from '/src/components/Dashboard.jsx'
 import VozComandosHome from '/src/components/voz/VozComandosHome.jsx'
-import VozComandosCardAnimalDetalles from '/src/components/voz/VozComandosCardAnimalDetalles.jsx'
-
-import CardAnimalDetalles from '/src/components/CardAnimalDetalles.jsx'
 
 // Lista de animales (menú principal)
 const animales = [
@@ -42,12 +39,6 @@ const animales = [
 ];
 
 function PageHome() {
-  const [comandoDetectado, setComandoDetectado] = useState(null);
-
-  const manejarComando = (comando) => {
-    setComandoDetectado(comando);
-  };
-
   return (
     <>
         <Dashboard/>
@@ -55,18 +46,7 @@ function PageHome() {
             <ListaAnimales animales={animales} />
         </div>
 
-        <CardAnimalDetalles id={1} nombre={'Prueba'} imagen={'src/assets/perros/boxer.jpg'} alt={'prueba_alt'} tamano={500}
-        informacion={'descripcion prueba'} pelaje={'pelaje_prueba'} caracter={'caracter_prueba'}
-        // Le pasamos EL BOOLEANO que nos dice que la variable de abrirInformacion se puso a true
-        // tras la llamada a la funcion "comandoInformacion"
-        comandoDetectado={comandoDetectado}/>
-        
-        <VozComandosCardAnimalDetalles
-        // Llamamos a la funcion "comandoInformacion", la cual estara ejecutandose 
-        // constantemente mienntras el componente "VozComandosCardAnimalDetalles" esté activo
-        // Si esta funcion retorna true, entonces "setAbrirInformacion" tambien se pondra a true
-        // lo que hará que "informacionAbierta" se ponga a true, y así se pueda abrir el collapse en "CardAnimalDetalles"
-        enviarComando={manejarComando} />
+        <VozComandosHome/>
     </>
   );
 }

@@ -3,41 +3,18 @@ import { useNavigate } from 'react-router-dom';
 // npm i react-speech-recognition
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-function VozComandosPerro() {
+function VozComandosAnimal({ animal, razas }) {
       const navigate = useNavigate();
 
       /* Estos son los comandos de voz reconocidos por este componente */
-      const comandos = [
-        {
-          command: 'Boxer',
-          callback: () => {
-            navigate('/gatos');
-          },
-          isFuzzyMatch: true,
-          fuzzyMatchingThreshold: 0.6
+      const comandos = razas.map(raza => ({
+        command: raza.nombre,
+        callback: () => {
+          navigate(`/${animal}/${raza.nombre.toLowerCase()}`);
         },
-        {
-          command: 'Breton',
-          callback: () => {
-            navigate('/perros');
-          },
-          isFuzzyMatch: true,
-          fuzzyMatchingThreshold: 0.6
-        },
-        {
-          command: 'Caniche',
-          callback: () => {
-            navigate('/lagartos');
-          },
-          isFuzzyMatch: true,
-          fuzzyMatchingThreshold: 0.6
-        },
-        {
-          // Borra todo lo que hayamos hablado para volver a empezar a escuchar de 0
-          command: 'borrar',
-          callback: ({ resetTranscript }) => resetTranscript()
-        }
-      ];
+        isFuzzyMatch: true,
+        fuzzyMatchingThreshold: 0.6
+      }));
 
       /* Transcribimos los comandos reconocidos por voz en la variable transcript */
       const {
@@ -46,8 +23,6 @@ function VozComandosPerro() {
         resetTranscript,
         browserSupportsSpeechRecognition
       } = useSpeechRecognition({ commands: comandos });
-
-      //console.log(transcript)
       
       if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
@@ -67,4 +42,4 @@ function VozComandosPerro() {
       );
     };
 
-export default VozComandosPerro;
+export default VozComandosAnimal;
