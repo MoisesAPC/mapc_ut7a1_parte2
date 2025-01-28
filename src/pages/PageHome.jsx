@@ -42,10 +42,10 @@ const animales = [
 ];
 
 function PageHome() {
-  const [informacionAbierta, setAbrirInformacion] = useState(false);
+  const [comandoDetectado, setComandoDetectado] = useState(null);
 
-  const comandoInformacion = () => {
-    setAbrirInformacion(true);
+  const manejarComando = (comando) => {
+    setComandoDetectado(comando);
   };
 
   return (
@@ -57,9 +57,16 @@ function PageHome() {
 
         <CardAnimalDetalles id={1} nombre={'Prueba'} imagen={'src/assets/perros/boxer.jpg'} alt={'prueba_alt'} tamano={500}
         informacion={'descripcion prueba'} pelaje={'pelaje_prueba'} caracter={'caracter_prueba'}
-        abrirInformacion={comandoInformacion}/>
-
-        <VozComandosCardAnimalDetalles abrirInformacion={comandoInformacion} />
+        // Le pasamos EL BOOLEANO que nos dice que la variable de abrirInformacion se puso a true
+        // tras la llamada a la funcion "comandoInformacion"
+        comandoDetectado={comandoDetectado}/>
+        
+        <VozComandosCardAnimalDetalles
+        // Llamamos a la funcion "comandoInformacion", la cual estara ejecutandose 
+        // constantemente mienntras el componente "VozComandosCardAnimalDetalles" esté activo
+        // Si esta funcion retorna true, entonces "setAbrirInformacion" tambien se pondra a true
+        // lo que hará que "informacionAbierta" se ponga a true, y así se pueda abrir el collapse en "CardAnimalDetalles"
+        enviarComando={manejarComando} />
     </>
   );
 }

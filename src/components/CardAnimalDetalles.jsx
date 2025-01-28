@@ -5,17 +5,21 @@ import { CardMedia } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Box, List, ListItem, Collapse } from '@mui/material';
 
-const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, caracter, abrirInformacion }) => {
+const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, caracter, comandoDetectado }) => {
 
-  const [openInformacion, setOpenInformacion] = useState(false)
+  const [abrirColapse, setAbrirColapse] = useState(null);
 
-  // Cuando la variable "abrirInformacion" esté a true
-  // abrimos el collapse de "Informacion"
+  // Con esta funcion, me aseguro de que, si abro un menu collapse (informacion, pelaje, caracter),
+  // se cierran los colapses que están actualmente abiertos
+  const manejarLosCollapse = (nuevoCollapse) => {
+    setAbrirColapse(previoCollapse => previoCollapse === nuevoCollapse ? null : nuevoCollapse);
+  };
+
   useEffect(() => {
-    if (abrirInformacion) {
-      setOpenInformacion(true);
+    if (comandoDetectado != null) {
+      setAbrirColapse(comandoDetectado);
     }
-  }, [abrirInformacion]);
+  }, [comandoDetectado]);
 
   return (
     <>
@@ -46,31 +50,31 @@ const CardAnimalDetalles = ({ nombre, alt, imagen, tamano, informacion, pelaje, 
 
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 2 }}>
             <List>
-              <ListItem>
+              <ListItem onClick={() => manejarLosCollapse('informacion')}>
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Información
 
-                  <Collapse in={openInformacion} sx={{ transitionDuration : "400ms" }}>
+                  <Collapse in={abrirColapse === 'informacion'} sx={{ transitionDuration : "400ms" }}>
                     <Typography>{informacion}</Typography>
                   </Collapse>
                 </Typography>
               </ListItem>
 
-              <ListItem>
+              <ListItem onClick={() => manejarLosCollapse('pelaje')}>
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Pelaje
 
-                  <Collapse in={openInformacion} sx={{ transitionDuration : "400ms" }}>
+                  <Collapse in={abrirColapse === 'pelaje'} sx={{ transitionDuration : "400ms" }}>
                     <Typography>{pelaje}</Typography>
                   </Collapse>
                 </Typography>
               </ListItem>
 
-              <ListItem>
+              <ListItem onClick={() => manejarLosCollapse('caracter')}>
                 <Typography variant="h6" component="div" align="center" fontWeight="bold" sx={{ textDecoration: 'underline', marginBottom: 2 }}>
                   Carácter
 
-                  <Collapse in={openInformacion} sx={{ transitionDuration : "400ms" }}>
+                  <Collapse in={abrirColapse === 'caracter'} sx={{ transitionDuration : "400ms" }}>
                     <Typography>{caracter}</Typography>
                   </Collapse>
                 </Typography>

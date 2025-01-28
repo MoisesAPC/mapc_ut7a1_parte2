@@ -58,8 +58,8 @@ function VozComandosPerro() {
           <p>Micrófono: {listening ? 'ON' : 'OFF'}</p>
           
           {/* Pulsa Start para empezar a escuchar, Stop para parar */}
-          <button onClick={SpeechRecognition.startListening({ language: 'es-ES' })}>Start</button>
-          <button onClick={SpeechRecognition.stopListening}>Stop</button>
+          <button onClick={() => SpeechRecognition.startListening({ language: 'es-ES' })}>Start</button>
+          <button onClick={() => SpeechRecognition.stopListening}>Stop</button>
 
           {/* Imprimimos lo que se diga al micrófono */}
           <p>{transcript}</p>
